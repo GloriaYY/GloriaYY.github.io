@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>GloriaYY's Blog - Migrated from CSDN</title><meta name="author" content="Gloria Yun"><meta name="copyright" content="Gloria Yun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="My technical blog migrated from CSDN to Hexo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GloriaYY&#39;s Blog">
+<meta property="og:url" content="http://gloriayy.github.io/index.html">
+<meta property="og:site_name" content="GloriaYY&#39;s Blog">
+<meta property="og:description" content="My technical blog migrated from CSDN to Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://gloriayy.github.io/img/butterfly-icon.png">
+<meta property="article:author" content="Gloria Yun">
+<meta property="article:tag" content="hexo, blog, csdn, migration">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gloriayy.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GloriaYY's Blog",
+  "alternateName": [
+    "Migrated from CSDN",
+    "gloriayy.github.io"
+  ],
+  "url": "http://gloriayy.github.io/"
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://gloriayy.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'GloriaYY\'s Blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">GloriaYY's Blog</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">GloriaYY's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/" title="返朴归真的技术">返朴归真的技术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time></span></div><div class="content">@[TOC]心得体会 返朴归真的技术一直以来不怎么喜欢写东西，总觉得有些东西写出来也不是很值得，因为很可能过一段时间再看就完全没有意义了。不过最近看了几本很有趣的书，觉得写出来的东西可以给其他人一点感动的话，也是很好的事情。 其实严格意义上我也不是一个计算机专业的人，要说的话，就是计算机相关专业，不过最近几年，对计算机的喜爱就越发强烈了。倒不是因为工作在计算机相关领域，话说其实工作本身就只是用计算机的很浅的功能，对计算机的兴趣完全来自于TA的优秀和朴实，还有就是TA给我带来的一系列挫折。 想当初，在学校里，安装任何一个软件我都很困难，别的同学安装好了，我的计算机总是出问题，报错不停，而且报的错也很奇葩，连老师看了都惊呼，你有一个奇怪的电脑（T_T)。 知道最近我才发现，其实TA只是告诉我，我根本不了解TA，我每天面对着的是自己根本不了解的机器，然而我还希望TA能解决我的所有问题。这就是我最大的问题，我相信这也是很多人的问题，但是很多人甚至还不觉得这是个问题。 重新认识计算机其实很多时候我遇到的报错信息，我甚至不明白他们的意思是什么，我只是看到了错误信息的文本和编号，但是在计算机里...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验">云IDE和开源大赛体验</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-15T02:10:15.000Z" title="发表于 2026-03-15 10:10:15">2026-03-15</time></span></div><div class="content">官方的活动，既然如此把链接留在这里吧~~不用谢！云IDE产品介绍云IDE使用教程免费使用地址：点击【云IDE】，即可开始创建工作空间啦~ 开源大赛其实我前几天看到了云IDE，可是没有开通，因为讲真，我对自己的开发技能还是认识很清醒的，让我从头写代码，我还真的是不知道自己现在能开发啥~~所以就想着别给自己找麻烦了。 然而今天逛CSDN发现了一个好东东，开源任务挑战赛（https://gitcode.net/gitcode/1024opensource/-/blob/master/%E5%BC%80%E6%BA%90%E4%BB%BB%E5%8A%A12.md），于是就开始参加了。 不得不说，比赛设置的不错，说明非常友好，基本上就是扶着小白上墙的节奏，已经这么友好了，我就真的不好意思不参加了呢~~ 当然，开源还真的是很吸引人的领域，想当初毕业设计想用IBM的闭源产品来着，导师硬是没有同意，指了一条明路，你去用开源solver吧。于是，从头学习了Python，短短三个月，各种拼凑也算是顺利毕业。那时候就有一个印象，开源的软件很强大，而且开源社区很友好！反正邮件组里有问题，经常得到回应，...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/14/20260314-%E3%80%90MySQL%E5%AE%9E%E6%88%982%20%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90%E3%80%91/" title="【MySQL实战2 作业解析】">【MySQL实战2 作业解析】</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-14T03:01:45.000Z" title="发表于 2026-03-14 11:01:45">2026-03-14</time></span></div><div class="content">这里写自定义目录标题 * 作业回顾   作业步骤 完成方法   * 恢复数据库   设置查询日志的开关 删除退市股票以及新股的无效交易日的数据 删除个股数据表 查询merged_table这张表里3开头的股票中每个月成交量最大的股票 下载日志文件，备份数据库      作业回顾作业内容发布在社区里：https://bbs.csdn.net/topics/613244256 作业步骤1、恢复数据库2、打开一般查询和慢查询日志，并设置为file输出，指定输出位置3、删除退市和新股的无效交易日数据4、删除个股数据表5、在merged_table里查询数据6、获取日志文件7、备份数据库 作业环境： 云容器 8核8G 完成方法恢复数据库#新建数据库 CREATE DATABASE stocks;  USE stocks;  # 利用备份文件恢复数据 SOURCE /media/stocks_backup.sql;  # 验证是否所有的表格都导入 SHOW tables;  设置查询日志的开关# 设置一般查询日志 show variables like &#39;general_log&#3...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/13/20260313-%E6%96%B0%E5%AD%A6%E6%9C%9F%E5%BC%80%E5%A7%8B%E4%BA%86/" title="新学期开始了">新学期开始了</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-13T13:11:48.000Z" title="发表于 2026-03-13 21:11:48">2026-03-13</time></span></div><div class="content">新学期开始了又是一年开学季，我也有一种开学的感jio， 因为现在有时间学习了。学习还是一件十分开心的事情，单位给了培训课程，终于都是我喜欢的课，真的是从来没有工作这么开心过！ 关于flag去年里的flag已经倒了，心心念念的刷Leetcode这个flag已经被无限繁忙的工作吹得无影无踪，买了VIP，只用了一个月，就再也没有登陆过~~这是买过得最贵得一个VIP，然而…，权当捐赠了。好吧，这里适合喊一句口号：为了技术进步！ flag就不立新的了，先把前年倒下得flag扶起来，我断然不会告诉你们这个flag是什么，等我扶起来再说~~ 关于Python实话说，不怎么喜欢它，但是确实很有用，于是今年开始会用到很多。发现Python的有些函数还是很好用，mark一下。 因为要查询季度数据，但又要用日期作为参数，所以需要提取每个季度最后一天的日期，PeriodIndex真的有帮很大忙，这段代码发这里，有需要的同志们可以自取。 from datetime import timedelta  date = pd.date_range(start = &#39;2020-01-01&#39;,end...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/13/20260313-%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%94%B6%E8%8E%B7/" title="开源大赛的种种收获">开源大赛的种种收获</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-13T12:54:38.000Z" title="发表于 2026-03-13 20:54:38">2026-03-13</time></span></div><div class="content">上帝关闭了你的小区，就会给开放一个社区其实疫情期间被封控，可以写写代码，真的是很好的一件事情。恰逢开源大赛，我就凭借着三脚猫的编程技巧提交了两个任务，准确的说是任务二，任务一根本就不需要编程技巧。 话说自己就是兴趣太广泛了，什么都想学，感觉什么都没有学好~~但是没有学好也不影响我，就是这么心大，依然什么都想学，好奇心作祟。 要是疫情就是这么放年假的感觉自然会很好，但是你在度假却看见不远处的小区有人非正常死亡，也很难保持好心情，哎…有时候对自己也很苦恼，就这点技术，竟然也帮不上任何忙。心里莫名羡慕大片里的黑客，自由出入各种系统，查到各种真相，扭转格局危险局面。悲伤的事儿就不说，说多了都难过 云IDE的使用体验用CSDN云IDE的体验应该说是提升了。 最近删除空间的速度明显快多了，鉴权方式也更好了，有SSH公钥，commit和 push都很流畅。 发现可以调试了，虽然其实我也不会调试，但是误入调试流程，就不小心知道啦。 真的很方便学习，学习过一个项目后删除空间，也很省事，不用考虑占用存储之类的困局。项目之间的隔离也很好。 就是有一个想法，不知道官方可以实现不？目前云IDE是同时只能运...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/04/20260304-Leetcode%20%E7%AC%AC320%E5%9C%BA%E5%91%A8%E8%B5%9B/" title="Leetcode 第320场周赛">Leetcode 第320场周赛</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-03T18:42:32.000Z" title="发表于 2026-03-04 02:42:32">2026-03-04</time></span></div><div class="content">重回Leetcode，参与周赛学习一下。果然，Leetcode的比赛难度很真实，就是我连签到题都做不对，恩，这就对啦。 一共四道题，90分钟，好像比CSDN的短30分钟，做题可以不按照顺序。 签到题目是第一题，我的目标其实就是做出签到题，但是很遗憾，没有实现！ 赛后去讨论区看了别人的题解，看到很多人用了hashmap，哎，数据结构啊，没有实现过，完全不能用起来。 找到了这个题解是java的，看起来很优秀，https://leetcode.cn/problems/number-of-unequal-triplets-in-array/solutions/1981751/by-longluo-kg4a/。 然而有我看不懂的地方 map.getOrDefault() 这个函数我在官方文档里没有找到啊。https://docs.oracle.com/javase/10/docs/api/java/util/HashMap.html 。文档里只有map.get()。 基础不好到连别人的答案都看不都了，真是郁闷了。然而，不能灰心，一点一点补吧。 Hasmap补习一下https://docs....</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/02/24/20260224-Leetbook%E4%BD%9C%E4%B8%9A%EF%BC%9A%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/" title="Leetbook作业：相交链表">Leetbook作业：相交链表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-02-24T03:25:37.000Z" title="发表于 2026-02-24 11:25:37">2026-02-24</time></span></div><div class="content">作业感受题目地址：https://leetcode-cn.com/leetbook/read/linked-list/jjbj2/ 这个题目实际上我是没有想出来的，在评论区看到一个答案很漂亮，但是也没有注释，就试着按照该思路执行了，正确。于是细看这段代码，发现了思路，就在代码基础上补充了注释，算是懂了。 其实我们遇到双指针的题目，我感觉就是要想办法让指针走过的路程一致，然后找到关键的节点。 这个思路就是把两个队列投射在一条线上，这样就对其长度了，最后找到交汇点。 public class Solution {     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {          if(headA == null || headB == null) return null;          ListNode a = headA, b = headB;          //两个指针走的步长一样，假设headA和headB相交的长度为 C, headA 的长度等于skipA + C, h...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/01/15/20260115-%E5%9B%9E%E5%BD%92%E6%AF%8D%E8%AF%AD/" title="回归母语">回归母语</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-01-14T23:14:38.000Z" title="发表于 2026-01-15 07:14:38">2026-01-15</time></span></div><div class="content">汇编语言 回归母语 * 做个小笔记   信而美    回归母语其实我也学过不少程序语言了吧，C，Java，Python，Matlab，R等等，但是每一种我都没有学到很精通的地步，一来是因为确实和工作比较远，二来确实自己也还是比较懒。学习时候遇到困难就总喜欢抱怨，这种语言好啰嗦，那种语言好麻烦，这个定义不清晰，那个语法太奇葩之类的，一直幻想有没有一种通用的计算机语言，可以把不同语言转换成一种，这样我们就可以只学一种语言，只要转换成通用语言就可以和其他语言编写的程序一样使用了。可是，你们也知道我的幻想在某种意义上其实并不存在，但是其实你们也知道我的幻想在另外一种意义上其实早就是现实了。有一次在群里聊这个话题，被嘲笑了，大家说你可以去学汇编语言啊，是啊，说起来好尴尬，我真的没有学过汇编语言啊，而且我似乎从来没想过要去学(T_T)，我一直以为那就是给计算机读的语言…直到前不久，突然内心膨胀去参加CTF比赛，一头雾水没有做出一道题的情况下，也还是看了看IDA，跟着别人的writeup试着反编译，我才发现其实汇编语言是给人类看的，只有二进制才是真的为计算机定制的语言，然而即便是二进制，人类也...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/10/05/20251005-Leetbook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" title="Leetbook作业记录：用栈实现队列">Leetbook作业记录：用栈实现队列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-10-05T07:26:16.000Z" title="发表于 2025-10-05 15:26:16">2025-10-05</time></span></div><div class="content">文章目录 题目概述 一、解题思路 二、作业记录 * 1.作业代码   2.作业表现   复杂度分析   题目概述用栈实现队列。题目要求用两个栈，实现队列的基本操作：push， pop, peek, empty。push的操作是在队尾添加元素，pop和peek则都需要在队首操作。要求均摊时间在O(1), 也就是n个元素的用时控制在O(n)。  题目地址：https://leetcode-cn.com/leetbook/read/queue-stack/gvtxe/ 一、解题思路因为给出可以使用两个栈的条件，那么一个用来顺序存储元素，另一个用来逆序存储元素。 因为均摊时间要在O(1)，那么逆序存储就控制在某个步骤就好了，不能瞎折腾。push这个操作天然可爱，就保持stack的顺序好啦，pop和peek是我们要关注的点。当逆序栈为空的时候，我们需要把顺序栈里的元素倒入逆序栈才能pop或者peek，这个倾倒的操作如果 pop完成了，peek就捡现成的啦，如果peek完成了，pop也是坐享其成，真是好搭档啊！ 二、作业记录1.作业代码代码如下： class MyQueue {       ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/29/20250929-leetcode%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" title="leetcode作业记录：反转链表">leetcode作业记录：反转链表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-29T10:45:31.000Z" title="发表于 2025-09-29 18:45:31">2025-09-29</time></span></div><div class="content">作业感受题目地址： https://leetcode-cn.com/leetbook/read/linked-list/f58sg/ 一看题目，要求用两种解法实现，循环或者递归，我的内心还是喜欢递归的，于是先实现递归。 递归版作业class Solution {     public ListNode reverseList(ListNode head) {      // 处理特殊条件         if(head == null)  return null;         if(head.next == null) return head;          // 如果没有特殊情况，还是用双指针解决问题，快指针比慢指针多走一步         ListNode slow = head, fast = head.next;                  //给返回的链表一个虚拟头部         ListNode dummyHead = new ListNode(5001);          // 快指针走到链表尾部，慢指针指向倒数第二个节点         whi...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gloria Yun</div><div class="author-info-description">My technical blog migrated from CSDN to Hexo</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="https://gloriayy.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/" title="返朴归真的技术">返朴归真的技术</a><time datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验">云IDE和开源大赛体验</a><time datetime="2026-03-15T02:10:15.000Z" title="发表于 2026-03-15 10:10:15">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/14/20260314-%E3%80%90MySQL%E5%AE%9E%E6%88%982%20%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90%E3%80%91/" title="【MySQL实战2 作业解析】">【MySQL实战2 作业解析】</a><time datetime="2026-03-14T03:01:45.000Z" title="发表于 2026-03-14 11:01:45">2026-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E6%96%B0%E5%AD%A6%E6%9C%9F%E5%BC%80%E5%A7%8B%E4%BA%86/" title="新学期开始了">新学期开始了</a><time datetime="2026-03-13T13:11:48.000Z" title="发表于 2026-03-13 21:11:48">2026-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%94%B6%E8%8E%B7/" title="开源大赛的种种收获">开源大赛的种种收获</a><time datetime="2026-03-13T12:54:38.000Z" title="发表于 2026-03-13 20:54:38">2026-03-13</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/02/">
+            <span class="card-archive-list-date">
+              二月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/05/">
+            <span class="card-archive-list-date">
+              五月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">51</div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-16T06:43:04.970Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Gloria Yun</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

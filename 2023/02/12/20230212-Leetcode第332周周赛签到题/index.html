@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Leetcode第332周周赛签到题 | GloriaYY's Blog</title><meta name="author" content="Gloria Yun"><meta name="copyright" content="Gloria Yun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="好久没有参加比赛了，过年以及疫情结束，让我的编程活动大幅减少。这周末为了测试codegeex决定参加一次周赛。 目标还是签到题，这次提交了，结果不正确。比上次有进步。但是对于测试codegeex的目标来说，结果不太满意。签到题目在这里 https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;find-the-array-concatenation-value&#x2F; 一开始让codegeex写代码，发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode第332周周赛签到题">
+<meta property="og:url" content="http://gloriayy.github.io/2023/02/12/20230212-Leetcode%E7%AC%AC332%E5%91%A8%E5%91%A8%E8%B5%9B%E7%AD%BE%E5%88%B0%E9%A2%98/index.html">
+<meta property="og:site_name" content="GloriaYY&#39;s Blog">
+<meta property="og:description" content="好久没有参加比赛了，过年以及疫情结束，让我的编程活动大幅减少。这周末为了测试codegeex决定参加一次周赛。 目标还是签到题，这次提交了，结果不正确。比上次有进步。但是对于测试codegeex的目标来说，结果不太满意。签到题目在这里 https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;find-the-array-concatenation-value&#x2F; 一开始让codegeex写代码，发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://gloriayy.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2023-02-12T06:13:12.000Z">
+<meta property="article:modified_time" content="2023-02-12T06:13:12.000Z">
+<meta property="article:author" content="Gloria Yun">
+<meta property="article:tag" content="hexo, blog, csdn, migration">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gloriayy.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Leetcode第332周周赛签到题",
+  "url": "http://gloriayy.github.io/2023/02/12/20230212-Leetcode%E7%AC%AC332%E5%91%A8%E5%91%A8%E8%B5%9B%E7%AD%BE%E5%88%B0%E9%A2%98/",
+  "image": "http://gloriayy.github.io/img/butterfly-icon.png",
+  "datePublished": "2023-02-12T06:13:12.000Z",
+  "dateModified": "2023-02-12T06:13:12.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Gloria Yun",
+      "url": "http://gloriayy.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://gloriayy.github.io/2023/02/12/20230212-Leetcode%E7%AC%AC332%E5%91%A8%E5%91%A8%E8%B5%9B%E7%AD%BE%E5%88%B0%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Leetcode第332周周赛签到题',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">GloriaYY's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Leetcode第332周周赛签到题</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Leetcode第332周周赛签到题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-12T06:13:12.000Z" title="发表于 2023-02-12 14:13:12">2023-02-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-12T06:13:12.000Z" title="更新于 2023-02-12 14:13:12">2023-02-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>好久没有参加比赛了，过年以及疫情结束，让我的编程活动大幅减少。这周末为了测试codegeex决定参加一次周赛。</p>
+<p>目标还是签到题，这次提交了，结果不正确。比上次有进步。但是对于测试codegeex的目标来说，结果不太满意。签到题目在这里 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-array-concatenation-value/">https://leetcode.cn/problems/find-the-array-concatenation-value/</a></p>
+<p>一开始让codegeex写代码，发现连我都看不下去啦，不是很沾边。于是就试了一下chatGPT，对话式的提示会好一点，但是效率也不高，纠正语法错误是可以的。</p>
+<p>不过对于我这种不记忆语法，编译时各种报错的选手来说，AI小助手的代码片段里的语法提示也是有用的。</p>
+<p>下面这段代码是是我觉得逻辑过关的一段代码，但是很遗憾，leetcode中提交错误。关键是错误的结果很诡异，是我理解不了的错误。</p>
+<pre><code>class Solution {
+    public long findTheArrayConcVal(int[] nums) {
+        
+        if(nums.length == 1)
+            return nums[0];
+        
+        ArrayList&lt;Integer&gt; numsList = new ArrayList&lt;&gt;();
+        
+        for( int i = 0;  i&lt; nums.length; i++){
+            numsList.add(nums[i]);
+        }
+        
+        long concatValue = 0;
+        int l = 0;
+        
+        while( numsList.size()&gt;=2){
+            
+                l = (int)Math.floor(Math.log10(Math.abs(numsList.get(numsList.size()-1))))+1;
+                concatValue += (long)numsList.get(numsList.size()-1)+ numsList.get(0)*10^l;
+                numsList.remove(numsList.size()-1);
+                numsList.remove(0);            
+        }
+        
+        if( !numsList.isEmpty()){
+            concatValue += (long)numsList.get(0);
+            numsList.remove(0);
+            
+        }
+        
+        return concatValue;
+
+    }
+}
+</code></pre>
+<p>我特地选了最简单的用例【7，4】，但是我的代码跑出来的结果是【7，5】</p>
+<p>这个逻辑上就震惊了我啊！然后我在IDE里借助输出进行排查，结果发现还是有错误，Java里乘方是不可以用^来表示的，需要用Math.pow(a,b)来表示。终于在经历了漫长的2个小时之后，终于找到了正确的答案。</p>
+<pre><code>class Solution {
+    public long findTheArrayConcVal(int[] nums) {
+        
+        
+        
+        ArrayList&lt;Integer&gt; numsList = new ArrayList&lt;&gt;();
+        
+        for( int i = 0;  i&lt; nums.length; i++){
+            numsList.add(nums[i]);
+        }
+        
+        long concatValue = 0;
+        int l = 0;
+        int i = 0;
+        int j = 0;
+        
+        while( numsList.size()&gt;=2){
+            
+                l = (int)Math.floor(Math.log10(Math.abs(numsList.get(numsList.size()-1))))+1;
+
+                i = numsList.get(0)*(int)Math.pow(10,l);
+
+                j = numsList.get(numsList.size()-1);
+
+                concatValue += (long) i + j;
+
+                numsList.remove(numsList.size()-1);
+                numsList.remove(0);  
+
+        }
+        
+        if( numsList.size() != 0){
+            concatValue += (long)numsList.get(0);
+
+            numsList.remove(0);
+            
+        }
+        
+        return concatValue;
+
+    }
+}
+</code></pre>
+<p>结果还不错，5ms，40.9MB。</p>
+<p>看来对于不经常写代码的人，语法就是一个巨大的瓶颈，而AI助手目前看来还是不能很好的解决这个问题。至少对我来说，它们还是不够智能。还是要自己多加练习才行，靠AI是靠不住的。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io">Gloria Yun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io/2023/02/12/20230212-Leetcode%E7%AC%AC332%E5%91%A8%E5%91%A8%E8%B5%9B%E7%AD%BE%E5%88%B0%E9%A2%98/">http://gloriayy.github.io/2023/02/12/20230212-Leetcode%E7%AC%AC332%E5%91%A8%E5%91%A8%E8%B5%9B%E7%AD%BE%E5%88%B0%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://gloriayy.github.io" target="_blank">GloriaYY's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/03/28/20230328-%E7%AB%9E%E8%B5%9B%E7%AC%AC9%E6%9C%9F/" title="竞赛第9期"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">竞赛第9期</div></div><div class="info-2"><div class="info-item-1">前天报名了竞赛，结果今天迟到了几分钟，因为做核酸~~ 赛题设置的变化今天的赛题感觉在设置上发生了一些变化，必须做完一道题才能进行下一题，我看到提示说提交以后不能再返回编辑了。那么真的是闯关的感觉，过一道关才能过下一关。难度有所增加，后面题目即使对前面题目有提示，也不能返回去完善了。个人觉得，这个比较符合竞赛的特点。 不知道是我的网络问题还是怎么样，我觉得今天得题目调试运行得特别慢。 题目的难度今天的题目第一道题依旧很简单，小艺读书，就是给定一本书的页数和每天读的页数，问多少天可以读完。依旧是和ArrayList有关。奈何我每次都忘记ArrayList的长度该用什么函数，总是用length, 于是就报错，然而确实想不起来了，经过查询javdoc（好吧，我又作弊了）发现应该是ArrayList.size()，这次一定要记住。我其实觉得函数在一个语言里能不能大致统一一下，array就用length，ArrayList就用size，真的有必要吗？ 简单一点一直用一种称呼不好吗？变来变去只会增加人类犯错误的机会。 从第二题开始我就不会了，恩，是真的不会。 第二题是连续子序列的最大权值， 哎...</div></div></div></a><a class="pagination-related" href="/2023/02/10/20230210-MySQL%E5%AE%9E%E6%88%98%E4%BD%9C%E4%B8%9A%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BB%8E%E7%A6%BB%E7%BA%BF%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93/" title="MySQL实战作业示例：从离线文件生成数据库"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">MySQL实战作业示例：从离线文件生成数据库</div></div><div class="info-2"><div class="info-item-1">前言MySQL实战的课后作业，作业内容具体见 https://bbs.csdn.net/topics/611904749截至时间是 2023年2月2日，按时提交的同学有一位。确实这次的作业非常有挑战性，作业用到的内容没有百分之百的学过，需要大家进行深入而有效的搜索和尝试。其实在解决困难问题的过程中，通过搜索解决方案和试错修正，我们可以快速学习。下面我给出一个作业问题的解决方案，仅供大家参考。 问题分析题目描述：创建数据库，将database_asset的表格（5073个证券2022年的交易日数据）全部导入数据库，并将他们合并，合并后，将表格的主键设置为证券代码、日期组成的联合主键。 先看一下给定的数据，5073个数据都是csv文件，数据是2022年全部交易日的交易数据。1月10日在群里另外给大家一个文件securities.csv，其中有证券的基本信息，包括显示名称，字母简称和上市和退市时间等。查看后，发现securities的内容并没有包含证券代码。 所以我们需要根据securities的数据内容，结合外部数据恢复证券代码。由于数据是从聚宽量化获取的，我们需要从数据源下载一份更...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gloria Yun</div><div class="author-info-description">My technical blog migrated from CSDN to Hexo</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="https://gloriayy.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/" title="返朴归真的技术">返朴归真的技术</a><time datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验">云IDE和开源大赛体验</a><time datetime="2026-03-15T02:10:15.000Z" title="发表于 2026-03-15 10:10:15">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/14/20260314-%E3%80%90MySQL%E5%AE%9E%E6%88%982%20%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90%E3%80%91/" title="【MySQL实战2 作业解析】">【MySQL实战2 作业解析】</a><time datetime="2026-03-14T03:01:45.000Z" title="发表于 2026-03-14 11:01:45">2026-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E6%96%B0%E5%AD%A6%E6%9C%9F%E5%BC%80%E5%A7%8B%E4%BA%86/" title="新学期开始了">新学期开始了</a><time datetime="2026-03-13T13:11:48.000Z" title="发表于 2026-03-13 21:11:48">2026-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%94%B6%E8%8E%B7/" title="开源大赛的种种收获">开源大赛的种种收获</a><time datetime="2026-03-13T12:54:38.000Z" title="发表于 2026-03-13 20:54:38">2026-03-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Gloria Yun</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

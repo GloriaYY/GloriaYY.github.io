@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>GloriaYY's Blog - Migrated from CSDN</title><meta name="author" content="Gloria Yun"><meta name="copyright" content="Gloria Yun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="My technical blog migrated from CSDN to Hexo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GloriaYY&#39;s Blog">
+<meta property="og:url" content="http://gloriayy.github.io/page/3/index.html">
+<meta property="og:site_name" content="GloriaYY&#39;s Blog">
+<meta property="og:description" content="My technical blog migrated from CSDN to Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://gloriayy.github.io/img/butterfly-icon.png">
+<meta property="article:author" content="Gloria Yun">
+<meta property="article:tag" content="hexo, blog, csdn, migration">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gloriayy.github.io/img/butterfly-icon.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://gloriayy.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'GloriaYY\'s Blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">GloriaYY's Blog</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">GloriaYY's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/15/20231115-%E4%BF%9D%E7%95%99%E5%AD%97%E7%9A%84%E9%83%81%E9%97%B7/" title="保留字的郁闷">保留字的郁闷</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-15T08:56:23.000Z" title="发表于 2023-11-15 16:56:23">2023-11-15</time></span></div><div class="content">1064 Error又是把数据导入库里的时候，发生了错误，1064。 ProgrammingError: (1064, &quot;You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#39;(30),titleVARCHAR(30),contentVARCHAR(30))&#39; at line 1&quot;  排查一遍，发现是表格字段使用了保留字。我其实不太喜欢这样的报错信息，就不能直接一点吗，就说you have used reserved words which caused SQL syntax error不行吗？ 然后，保留字我看了一下，目测至少有二三百个吧，真是郁闷啊，敢不敢再多一点保留字，真的是把常用词都霸占了的感觉。 Anyway， 还是把保留字的查询连接存一下吧，看起来也是高频使用信息呢 官方文档：https://docs.oracle.co...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/08/13/20230813-Leetcode%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%951%EF%BC%9A%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/" title="Leetcode作业记录1：设计循环队列">Leetcode作业记录1：设计循环队列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-13T06:06:16.000Z" title="发表于 2023-08-13 14:06:16">2023-08-13</time></span></div><div class="content">Leetcode学习队列篇题目地址： https://leetcode-cn.com/leetbook/read/queue-stack/kzlb5/ 多年没有写代码了，语言都忘差不多了。就这一道题，我花费了两天啊，总算做出来了，结果还不错，纪念一下。庆幸自己还有救，不能放弃治疗。全面恢复代码功力中，加油！ show codeclass MyCircularQueue {      private int head;     private int tail;     private int[] data;     private int len;     private int count;       public MyCircularQueue(int k) {         head = 0;         tail = 0;         len = k;         count = 0;         data = new int[k];         }          public boolean enQueue(int value) {     ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/28/20230328-%E7%AB%9E%E8%B5%9B%E7%AC%AC9%E6%9C%9F/" title="竞赛第9期">竞赛第9期</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-28T12:52:09.000Z" title="发表于 2023-03-28 20:52:09">2023-03-28</time></span></div><div class="content">前天报名了竞赛，结果今天迟到了几分钟，因为做核酸~~ 赛题设置的变化今天的赛题感觉在设置上发生了一些变化，必须做完一道题才能进行下一题，我看到提示说提交以后不能再返回编辑了。那么真的是闯关的感觉，过一道关才能过下一关。难度有所增加，后面题目即使对前面题目有提示，也不能返回去完善了。个人觉得，这个比较符合竞赛的特点。 不知道是我的网络问题还是怎么样，我觉得今天得题目调试运行得特别慢。 题目的难度今天的题目第一道题依旧很简单，小艺读书，就是给定一本书的页数和每天读的页数，问多少天可以读完。依旧是和ArrayList有关。奈何我每次都忘记ArrayList的长度该用什么函数，总是用length, 于是就报错，然而确实想不起来了，经过查询javdoc（好吧，我又作弊了）发现应该是ArrayList.size()，这次一定要记住。我其实觉得函数在一个语言里能不能大致统一一下，array就用length，ArrayList就用size，真的有必要吗？ 简单一点一直用一种称呼不好吗？变来变去只会增加人类犯错误的机会。 从第二题开始我就不会了，恩，是真的不会。 第二题是连续子序列的最大权值， 哎...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/12/20230212-Leetcode%E7%AC%AC332%E5%91%A8%E5%91%A8%E8%B5%9B%E7%AD%BE%E5%88%B0%E9%A2%98/" title="Leetcode第332周周赛签到题">Leetcode第332周周赛签到题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-12T06:13:12.000Z" title="发表于 2023-02-12 14:13:12">2023-02-12</time></span></div><div class="content">好久没有参加比赛了，过年以及疫情结束，让我的编程活动大幅减少。这周末为了测试codegeex决定参加一次周赛。 目标还是签到题，这次提交了，结果不正确。比上次有进步。但是对于测试codegeex的目标来说，结果不太满意。签到题目在这里 https://leetcode.cn/problems/find-the-array-concatenation-value/ 一开始让codegeex写代码，发现连我都看不下去啦，不是很沾边。于是就试了一下chatGPT，对话式的提示会好一点，但是效率也不高，纠正语法错误是可以的。 不过对于我这种不记忆语法，编译时各种报错的选手来说，AI小助手的代码片段里的语法提示也是有用的。 下面这段代码是是我觉得逻辑过关的一段代码，但是很遗憾，leetcode中提交错误。关键是错误的结果很诡异，是我理解不了的错误。 class Solution {     public long findTheArrayConcVal(int[] nums) {                  if(nums.length == 1)             retur...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/10/20230210-MySQL%E5%AE%9E%E6%88%98%E4%BD%9C%E4%B8%9A%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BB%8E%E7%A6%BB%E7%BA%BF%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93/" title="MySQL实战作业示例：从离线文件生成数据库">MySQL实战作业示例：从离线文件生成数据库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-10T03:21:57.000Z" title="发表于 2023-02-10 11:21:57">2023-02-10</time></span></div><div class="content">前言MySQL实战的课后作业，作业内容具体见 https://bbs.csdn.net/topics/611904749截至时间是 2023年2月2日，按时提交的同学有一位。确实这次的作业非常有挑战性，作业用到的内容没有百分之百的学过，需要大家进行深入而有效的搜索和尝试。其实在解决困难问题的过程中，通过搜索解决方案和试错修正，我们可以快速学习。下面我给出一个作业问题的解决方案，仅供大家参考。 问题分析题目描述：创建数据库，将database_asset的表格（5073个证券2022年的交易日数据）全部导入数据库，并将他们合并，合并后，将表格的主键设置为证券代码、日期组成的联合主键。 先看一下给定的数据，5073个数据都是csv文件，数据是2022年全部交易日的交易数据。1月10日在群里另外给大家一个文件securities.csv，其中有证券的基本信息，包括显示名称，字母简称和上市和退市时间等。查看后，发现securities的内容并没有包含证券代码。 所以我们需要根据securities的数据内容，结合外部数据恢复证券代码。由于数据是从聚宽量化获取的，我们需要从数据源下载一份更...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/03/20230203-LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%20%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="LeetBook作业记录: 二分查找">LeetBook作业记录: 二分查找</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-03T10:45:17.000Z" title="发表于 2023-02-03 18:45:17">2023-02-03</time></span></div><div class="content">文章目录 题目概述 一、解题思路 二、作业记录 * 1.作业代码   2.作业表现   复杂度分析   题目概述给定一个升序数组nums和一个整数target, 用二分查找查找target是否在nums中，如果在，返回对应元素的index，如果不在，返回-1。  题目地址：https://leetcode-cn.com/leetbook/read/binary-search/xexoac/ 一、解题思路利用左右两个浮标标注二分查找的区域，初始状态下，左浮标在0位，右浮标在nums.length-1位。循环语句用index开始从数组中间查找，如果index指向的元素小于target，更新右浮标，如果大于target，则更新左浮标，如果等于就跳出循环。 这道题目的边界条件需要处理：1）数组只有一个元素的情况2）target小于数组第一个元素,target大于数组最后一个元素3）target等于数组第一个元素或数组最后一个元素 二、作业记录1.作业代码代码如下： class Solution {     public int search(int[] nums, int target)...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/03/20230203-LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%952%EF%BC%9A%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/" title="LeetBook作业记录2：环形链表">LeetBook作业记录2：环形链表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-03T10:45:17.000Z" title="发表于 2023-02-03 18:45:17">2023-02-03</time></span></div><div class="content">作业感受检查空指针很重要，空指针无法参与运算，每次做比较条件时都需要校验参与比较的两数是否非空。 之前设计的题目ListNode还可以修改，加一些自定义的属性，但是这次应该用的是Java的内置库，我试过修改ListNode的属性，但是都报错了。 作业代码/**  * Definition for singly-linked list.  * class ListNode {  *     int val;  *     ListNode next;  *     ListNode(int x) {  *         val = x;  *         next = null;  *     }  * }  */  public class Solution {          public boolean hasCycle(ListNode head) {          int pos = -1;          if(head == null) {             return false;         }                      ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/03/20230203-LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%953%EF%BC%9A%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%9D%87/" title="LeetBook作业记录3：移动平均">LeetBook作业记录3：移动平均</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-03T10:45:17.000Z" title="发表于 2023-02-03 18:45:17">2023-02-03</time></span></div><div class="content">作业心得题目地址： https://leetcode-cn.com/leetbook/read/queue-stack/k1msc/ 延续上次循环队列作业的思路，本来想要修改一下，下标从-1开始的，但是发现太容易发生数据下标越界了，还是从0开始吧 第一次成功提交class MovingAverage {      /** Initialize your data structure here. */     int size;     int[] data;     int head;     int tail;     int count;      public MovingAverage(int size) {         data = new int[size];         head = 0;         tail = 0;         this.size = size;         count = 0;      }          public double next(int val) {         double avg = 0;    ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/03/20230203-LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%E9%92%A5%E5%8C%99%E5%92%8C%E6%88%BF%E9%97%B4/" title="LeetBook作业记录：钥匙和房间">LeetBook作业记录：钥匙和房间</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-03T10:45:17.000Z" title="发表于 2023-02-03 18:45:17">2023-02-03</time></span></div><div class="content">文章目录 题目概述 一、题目思路 二、作业记录 * 1.作业代码   2.作业表现   复杂度分析   题目概述队列和栈章节，小结的最后一道题。题目给了一个房间数组，每一个房间里都有一串钥匙，钥匙数量在0-n之间不等，一开始只有0号房间的钥匙，题目要求返回是否能遍历所有房间  题目地址：https://leetcode-cn.com/leetbook/read/queue-stack/gle1r/ 一、题目思路这道题一开始我还在幻想不用dfs， 用一个循环和hashmap搞定，然而并不能够，因为顺序遍历房间虽然可以把有钥匙的都标识出来，但是用钥匙开房间却不是一个顺序的过程，需要根据钥匙的情况逐步递进的开房门。 所以还是得用dfs， 因为代码写的不熟练，出错了很多次，最后发现有一个语句下标引用错了，提交了大概7、8次吧。什么时候才能像大佬一样在纸上写完代码一次就通过呢？我好像很难在纸上思考。 二、作业记录1.作业代码代码如下： class Solution {     private HashMap hasKey = new HashMap&lt;Integer,Boolean&g...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/03/20230203-LeetBook%E4%BD%9C%E4%B8%9A%EF%BC%9A%20%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/" title="LeetBook作业： 每日温度">LeetBook作业： 每日温度</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-03T10:45:17.000Z" title="发表于 2023-02-03 18:45:17">2023-02-03</time></span></div><div class="content">文章目录 题目地址 一、解题思路 二、作业记录 * 1.暴力代码     * 1.1 作业表现   2. 优化代码   * 2.1 优化后提交结果   3. 官方思路优化的代码   * 3.1 官方思路优化代码的表现   4. 用Deque实现栈后的代码   * 4.1 执行表现     复杂度分析   题目地址https://leetcode-cn.com/leetbook/read/queue-stack/genw3/  一、解题思路朴素思维： 双层循环，利用两个指针寻找每一天温度之后的较高温度，返回两个指针的下标的差为answer[i]的值。示例中的测试用例是可以的，但是提交以后运行超时了。毕竟temperatures的最大长度是10^5。超时的测试用例是只有两个温度不停摆动的温度序列，这个点我一开始也没有考虑到。  转换思路：既然是栈的练习题，还是要充分利用栈的特性。而且最多就只能循环一次。我想到了链表的双指针。 二、作业记录1.暴力代码代码如下： class Solution {     public int[] dailyTemperatures(int[] temp...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gloria Yun</div><div class="author-info-description">My technical blog migrated from CSDN to Hexo</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="https://gloriayy.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/" title="返朴归真的技术">返朴归真的技术</a><time datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验">云IDE和开源大赛体验</a><time datetime="2026-03-15T02:10:15.000Z" title="发表于 2026-03-15 10:10:15">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/14/20260314-%E3%80%90MySQL%E5%AE%9E%E6%88%982%20%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90%E3%80%91/" title="【MySQL实战2 作业解析】">【MySQL实战2 作业解析】</a><time datetime="2026-03-14T03:01:45.000Z" title="发表于 2026-03-14 11:01:45">2026-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E6%96%B0%E5%AD%A6%E6%9C%9F%E5%BC%80%E5%A7%8B%E4%BA%86/" title="新学期开始了">新学期开始了</a><time datetime="2026-03-13T13:11:48.000Z" title="发表于 2026-03-13 21:11:48">2026-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%94%B6%E8%8E%B7/" title="开源大赛的种种收获">开源大赛的种种收获</a><time datetime="2026-03-13T12:54:38.000Z" title="发表于 2026-03-13 20:54:38">2026-03-13</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/02/">
+            <span class="card-archive-list-date">
+              二月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/05/">
+            <span class="card-archive-list-date">
+              五月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">51</div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-16T06:43:04.970Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Gloria Yun</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

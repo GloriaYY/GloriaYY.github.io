@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>回归母语 | GloriaYY's Blog</title><meta name="author" content="Gloria Yun"><meta name="copyright" content="Gloria Yun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="汇编语言 回归母语 * 做个小笔记   信而美    回归母语其实我也学过不少程序语言了吧，C，Java，Python，Matlab，R等等，但是每一种我都没有学到很精通的地步，一来是因为确实和工作比较远，二来确实自己也还是比较懒。学习时候遇到困难就总喜欢抱怨，这种语言好啰嗦，那种语言好麻烦，这个定义不清晰，那个语法太奇葩之类的，一直幻想有没有一种通用的计算机语言，可以把不同语言转换成一种，这样我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回归母语">
+<meta property="og:url" content="http://gloriayy.github.io/2026/01/15/20260115-%E5%9B%9E%E5%BD%92%E6%AF%8D%E8%AF%AD/index.html">
+<meta property="og:site_name" content="GloriaYY&#39;s Blog">
+<meta property="og:description" content="汇编语言 回归母语 * 做个小笔记   信而美    回归母语其实我也学过不少程序语言了吧，C，Java，Python，Matlab，R等等，但是每一种我都没有学到很精通的地步，一来是因为确实和工作比较远，二来确实自己也还是比较懒。学习时候遇到困难就总喜欢抱怨，这种语言好啰嗦，那种语言好麻烦，这个定义不清晰，那个语法太奇葩之类的，一直幻想有没有一种通用的计算机语言，可以把不同语言转换成一种，这样我">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://gloriayy.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-01-14T23:14:38.000Z">
+<meta property="article:modified_time" content="2026-01-14T23:14:38.000Z">
+<meta property="article:author" content="Gloria Yun">
+<meta property="article:tag" content="hexo, blog, csdn, migration">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gloriayy.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "回归母语",
+  "url": "http://gloriayy.github.io/2026/01/15/20260115-%E5%9B%9E%E5%BD%92%E6%AF%8D%E8%AF%AD/",
+  "image": "http://gloriayy.github.io/img/butterfly-icon.png",
+  "datePublished": "2026-01-14T23:14:38.000Z",
+  "dateModified": "2026-01-14T23:14:38.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Gloria Yun",
+      "url": "http://gloriayy.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://gloriayy.github.io/2026/01/15/20260115-%E5%9B%9E%E5%BD%92%E6%AF%8D%E8%AF%AD/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '回归母语',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">GloriaYY's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">回归母语</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">回归母语</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-14T23:14:38.000Z" title="发表于 2026-01-15 07:14:38">2026-01-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-14T23:14:38.000Z" title="更新于 2026-01-15 07:14:38">2026-01-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h4 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h4><ul>
+<li>回归母语</li>
+<li><pre><code>* 做个小笔记
+</code></pre>
+<ul>
+<li>信而美</li>
+</ul>
+</li>
+</ul>
+<h2 id="回归母语"><a href="#回归母语" class="headerlink" title="回归母语"></a>回归母语</h2><p>其实我也学过不少程序语言了吧，C，Java，Python，Matlab，R等等，但是每一种我都没有学到很精通的地步，一来是因为确实和工作比较远，二来确实自己也还是比较懒。学习时候遇到困难就总喜欢抱怨，这种语言好啰嗦，那种语言好麻烦，这个定义不清晰，那个语法太奇葩之类的，一直幻想有没有一种通用的计算机语言，可以把不同语言转换成一种，这样我们就可以只学一种语言，只要转换成通用语言就可以和其他语言编写的程序一样使用了。可是，你们也知道我的幻想在某种意义上其实并不存在，但是其实你们也知道我的幻想在另外一种意义上其实早就是现实了。有一次在群里聊这个话题，被嘲笑了，大家说你可以去学汇编语言啊，是啊，说起来好尴尬，我真的没有学过汇编语言啊，而且我似乎从来没想过要去学(T_T)，我一直以为那就是给计算机读的语言…直到前不久，突然内心膨胀去参加CTF比赛，一头雾水没有做出一道题的情况下，也还是看了看IDA，跟着别人的writeup试着反编译，我才发现其实汇编语言是给人类看的，只有二进制才是真的为计算机定制的语言，然而即便是二进制，人类也是可以看得懂得。</p>
+<p>终于发现，其实所有的编程高级语言，不过是汇编语言的抽象化，最终都要翻译成汇编语言的，这么看起来，汇编语言才是编程的母语。既然我的其他语言学得都不好，先把母语学学可能会有帮助吧。</p>
+<h3 id="做个小笔记"><a href="#做个小笔记" class="headerlink" title="做个小笔记"></a>做个小笔记</h3><p>最近开始看一本有趣的书《30天自制操作系统》，作者是川合秀实，当然我看的是中译本（日语还没有学到可以读书的水平T_T)。书里讲了很多汇编语言的语句，我准备在这里做一个小笔记，把这些语句的意思记录下来，这样下次遇到的时候我就不用到处查了，回来翻翻自己的博客就好啦（有些懒）。下面的这些都是整理自《30天自制操作系统》的内容哦</p>
+<p><strong>常见的几个汇编语句及其含义</strong> ：</p>
+<ol>
+<li><strong>MOV</strong> ：move，意思是移动，实质是赋值。源数据和目的数据必须位数相同。</li>
+<li><strong>JMP</strong> ：jump，意思是跳转。</li>
+<li><strong>ORG</strong> ：origin，意思是源头，起点，实质是指定程序开始的地址。</li>
+<li><strong>ADD</strong> ：add，相加</li>
+<li><strong>BYTE</strong> ：使用的存储单元只是地址多指定的字节。</li>
+<li><strong>WORD</strong> ：地址所指定的字节的相邻一个字节也会成为指令的操作对象。</li>
+<li><strong>DWORD</strong> ：与WORD相邻的两个字节都会成为指令的操作对象。</li>
+<li><strong>CMP</strong> ：compare，比较指令</li>
+<li><strong>JE</strong> ：jump if equal, 条件跳转指令，如果比较结果相等就跳转，不等就不跳转</li>
+<li><strong>INT</strong> : interrupt , 软件中断指令。</li>
+<li><strong>HLT</strong> ：halt，让CPU进入待机状态。</li>
+<li><strong>JC</strong> ：jump if carry，如果进位标志是1就跳转，否则不跳转。</li>
+<li><strong>JNC</strong> ：jump if not carry，如果进位标志是0就跳转，否则不跳转。</li>
+<li><strong>JAE</strong> ：jump if above or equal，大于或等于时跳转，否则不跳转。</li>
+<li><strong>JBE</strong> ：jump if below or equal，小于等于则跳转，否则不跳转。</li>
+<li><strong>JB</strong> ：jump if below，如果小于则跳转</li>
+<li><strong>RESB</strong> : reverse byte, 预留字节</li>
+<li><strong>DW</strong> ：define word</li>
+<li><strong>DD</strong> ：define double-word</li>
+<li><strong>DB</strong> ：define byte</li>
+</ol>
+<p>还有一些常用的寄存器的名称，也很重要的感觉。</p>
+<p>8个<strong>16位寄存器</strong> ：</p>
+<ul>
+<li><strong>AX</strong> ：accumulator，累加寄存器</li>
+<li><strong>CX</strong> ：counter, 计数寄存器</li>
+<li><strong>DX</strong> ：data，数据寄存器</li>
+<li><strong>BX</strong> ：base，基址寄存器</li>
+<li><strong>SP</strong> ：stack pointer，栈指针寄存器</li>
+<li><strong>BP</strong> ：base pointer，基址指针寄存器</li>
+<li><strong>SI</strong> ：source index，源变址寄存器</li>
+<li><strong>DI</strong> ：destination index，目的变址寄存器</li>
+</ul>
+<p>16位<strong>段寄存器</strong> ：</p>
+<ul>
+<li><strong>ES</strong> ：extra segment，附加段寄存器</li>
+<li><strong>CS</strong> ：code segment，代码段寄存器</li>
+<li><strong>SS</strong> ：stack segment，栈段寄存器</li>
+<li><strong>DS</strong> ：data segment，数据段寄存器</li>
+<li><strong>FS</strong> ：没有名字的段寄存器</li>
+<li><strong>GS</strong> ：没有名字的段寄存器</li>
+</ul>
+<p>8个<strong>8位寄存器</strong> ：</p>
+<ul>
+<li><strong>AL</strong> ：累加寄存器低位</li>
+<li><strong>CL</strong> ：计数寄存器低位</li>
+<li><strong>DL</strong> ：数据寄存器低位</li>
+<li><strong>BL</strong> ：基址寄存器低位</li>
+<li><strong>AH</strong> ：累加寄存器高位</li>
+<li><strong>CH</strong> ：计数寄存器高位</li>
+<li><strong>DH</strong> ：数据寄存器高位</li>
+<li><strong>BH</strong> ：基址寄存器高位</li>
+</ul>
+<p>8个<strong>32位寄存器</strong> ：<br><strong>EAX</strong> ，<strong>ECX</strong> ，<strong>EDX</strong> ，<strong>EBX</strong> ，<strong>ESP</strong> ，<strong>EBP</strong> ，<strong>ESI</strong> ，<strong>EDI</strong> ，这里的<strong>E</strong> 就是<strong>Extend</strong> 的意思，就是在16位寄存器的基础上扩展了的意思</p>
+<h3 id="信而美"><a href="#信而美" class="headerlink" title="信而美"></a>信而美</h3><p>看完了这些汇编语言，我才发现，其实计算机的语言本质也很简洁啊，比文言文还要简洁啊，如此甚好。之前在看《操作系统之哲学原理》的时候，有一章的引子叫“信言不美，美言不信”，我一时间不理解为什么用这个标题。看完汇编语言之后，我大概有些理解了。那么多的高级语言，看起来很美，但是执行的过程中就会有一些不可靠的情况，而汇编语言，虽然看起来不美，但是执行起来是不大折扣的。</p>
+<p>信言不美，美言不信，固然是现实，但是理想主义者的心理总有一种追求，可不可以既信又美呢？如果可以出现一种信而美的语言，是不是可以拯救满是bug的世界呢？（白日梦模式已经开启）</p>
+<p>到底是什么导致信言不美，美言不信呢，仔细想想，可能是对美的追求有些不切实际呢，其实《30天自制操作系统》这本书里也有提到，程序写的在漂亮，执行时候出问题也白搭，还不如程序写的容易执行但是看起来不那么漂亮。</p>
+<p>就让我从白日梦开始，学习编程吧。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io">Gloria Yun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io/2026/01/15/20260115-%E5%9B%9E%E5%BD%92%E6%AF%8D%E8%AF%AD/">http://gloriayy.github.io/2026/01/15/20260115-%E5%9B%9E%E5%BD%92%E6%AF%8D%E8%AF%AD/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://gloriayy.github.io" target="_blank">GloriaYY's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/02/24/20260224-Leetbook%E4%BD%9C%E4%B8%9A%EF%BC%9A%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/" title="Leetbook作业：相交链表"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Leetbook作业：相交链表</div></div><div class="info-2"><div class="info-item-1">作业感受题目地址：https://leetcode-cn.com/leetbook/read/linked-list/jjbj2/ 这个题目实际上我是没有想出来的，在评论区看到一个答案很漂亮，但是也没有注释，就试着按照该思路执行了，正确。于是细看这段代码，发现了思路，就在代码基础上补充了注释，算是懂了。 其实我们遇到双指针的题目，我感觉就是要想办法让指针走过的路程一致，然后找到关键的节点。 这个思路就是把两个队列投射在一条线上，这样就对其长度了，最后找到交汇点。 public class Solution {     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {          if(headA == null || headB == null) return null;          ListNode a = headA, b = headB;          //两个指针走的步长一样，假设headA和headB相交的长度为 C, headA 的长度等于skipA + C, h...</div></div></div></a><a class="pagination-related" href="/2025/10/05/20251005-Leetbook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" title="Leetbook作业记录：用栈实现队列"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Leetbook作业记录：用栈实现队列</div></div><div class="info-2"><div class="info-item-1">文章目录 题目概述 一、解题思路 二、作业记录 * 1.作业代码   2.作业表现   复杂度分析   题目概述用栈实现队列。题目要求用两个栈，实现队列的基本操作：push， pop, peek, empty。push的操作是在队尾添加元素，pop和peek则都需要在队首操作。要求均摊时间在O(1), 也就是n个元素的用时控制在O(n)。  题目地址：https://leetcode-cn.com/leetbook/read/queue-stack/gvtxe/ 一、解题思路因为给出可以使用两个栈的条件，那么一个用来顺序存储元素，另一个用来逆序存储元素。 因为均摊时间要在O(1)，那么逆序存储就控制在某个步骤就好了，不能瞎折腾。push这个操作天然可爱，就保持stack的顺序好啦，pop和peek是我们要关注的点。当逆序栈为空的时候，我们需要把顺序栈里的元素倒入逆序栈才能pop或者peek，这个倾倒的操作如果 pop完成了，peek就捡现成的啦，如果peek完成了，pop也是坐享其成，真是好搭档啊！ 二、作业记录1.作业代码代码如下： class MyQueue {       ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gloria Yun</div><div class="author-info-description">My technical blog migrated from CSDN to Hexo</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="https://gloriayy.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">汇编语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%AF%8D%E8%AF%AD"><span class="toc-number">2.</span> <span class="toc-text">回归母语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9A%E4%B8%AA%E5%B0%8F%E7%AC%94%E8%AE%B0"><span class="toc-number">2.1.</span> <span class="toc-text">做个小笔记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E8%80%8C%E7%BE%8E"><span class="toc-number">2.2.</span> <span class="toc-text">信而美</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/" title="返朴归真的技术">返朴归真的技术</a><time datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验">云IDE和开源大赛体验</a><time datetime="2026-03-15T02:10:15.000Z" title="发表于 2026-03-15 10:10:15">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/14/20260314-%E3%80%90MySQL%E5%AE%9E%E6%88%982%20%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90%E3%80%91/" title="【MySQL实战2 作业解析】">【MySQL实战2 作业解析】</a><time datetime="2026-03-14T03:01:45.000Z" title="发表于 2026-03-14 11:01:45">2026-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E6%96%B0%E5%AD%A6%E6%9C%9F%E5%BC%80%E5%A7%8B%E4%BA%86/" title="新学期开始了">新学期开始了</a><time datetime="2026-03-13T13:11:48.000Z" title="发表于 2026-03-13 21:11:48">2026-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%94%B6%E8%8E%B7/" title="开源大赛的种种收获">开源大赛的种种收获</a><time datetime="2026-03-13T12:54:38.000Z" title="发表于 2026-03-13 20:54:38">2026-03-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Gloria Yun</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

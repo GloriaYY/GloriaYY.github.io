@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【数据库读写的不对称】 | GloriaYY's Blog</title><meta name="author" content="Gloria Yun"><meta name="copyright" content="Gloria Yun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="今天试着批量把csv写入数据库，数据量也不大，但是很奇怪就是总提交失败。查了一会儿，发现是有空值的数据行提交失败。 想想就很生气啊， 我从数据库读出来的时候，也是好多空值的，不过是访问别人给的接口。我把数据存下来，空值也没有做处理，我想着建表的时候也没说哪一列不能为空，主键不空就好了吧，然而现实是很无情地。 executemany()执行过程中，就会报错。 我仔细想了一下，可能是由于execute">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【数据库读写的不对称】">
+<meta property="og:url" content="http://gloriayy.github.io/2022/09/30/20220930-%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E7%9A%84%E4%B8%8D%E5%AF%B9%E7%A7%B0%E3%80%91/index.html">
+<meta property="og:site_name" content="GloriaYY&#39;s Blog">
+<meta property="og:description" content="今天试着批量把csv写入数据库，数据量也不大，但是很奇怪就是总提交失败。查了一会儿，发现是有空值的数据行提交失败。 想想就很生气啊， 我从数据库读出来的时候，也是好多空值的，不过是访问别人给的接口。我把数据存下来，空值也没有做处理，我想着建表的时候也没说哪一列不能为空，主键不空就好了吧，然而现实是很无情地。 executemany()执行过程中，就会报错。 我仔细想了一下，可能是由于execute">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://gloriayy.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2022-09-30T07:36:20.000Z">
+<meta property="article:modified_time" content="2022-09-30T07:36:20.000Z">
+<meta property="article:author" content="Gloria Yun">
+<meta property="article:tag" content="hexo, blog, csdn, migration">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gloriayy.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【数据库读写的不对称】",
+  "url": "http://gloriayy.github.io/2022/09/30/20220930-%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E7%9A%84%E4%B8%8D%E5%AF%B9%E7%A7%B0%E3%80%91/",
+  "image": "http://gloriayy.github.io/img/butterfly-icon.png",
+  "datePublished": "2022-09-30T07:36:20.000Z",
+  "dateModified": "2022-09-30T07:36:20.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Gloria Yun",
+      "url": "http://gloriayy.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://gloriayy.github.io/2022/09/30/20220930-%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E7%9A%84%E4%B8%8D%E5%AF%B9%E7%A7%B0%E3%80%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【数据库读写的不对称】',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">GloriaYY's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">【数据库读写的不对称】</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">【数据库读写的不对称】</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-30T07:36:20.000Z" title="发表于 2022-09-30 15:36:20">2022-09-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-30T07:36:20.000Z" title="更新于 2022-09-30 15:36:20">2022-09-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>今天试着批量把csv写入数据库，数据量也不大，但是很奇怪就是总提交失败。查了一会儿，发现是有空值的数据行提交失败。</p>
+<p>想想就很生气啊， 我从数据库读出来的时候，也是好多空值的，不过是访问别人给的接口。我把数据存下来，空值也没有做处理，我想着建表的时候也没说哪一列不能为空，主键不空就好了吧，然而现实是很无情地。</p>
+<p>executemany()执行过程中，就会报错。</p>
+<p>我仔细想了一下，可能是由于executemany提交的数据必须是tuple格式的，而如果有一个空值的化，就相当于tuple变长度了，所以会触发错误。</p>
+<p>但是这样一来，我就只能把空值替换为一个常数，刚才换成了0。但是总觉得缺少空值的韵味，哎，越来越觉得，没有一个软件是好用的，没有一个数据库是好用的，然而自己有不会造自己的，所以还是自己的错。</p>
+<p>慢慢进步吧，重要的是现在有时间研究啦，哈哈，前进一步有一步的风景~~</p>
+<p>为了实现批量上传csv到mysql数据库，查阅了一些帖子，以下两篇挺值得参考，虽然帖子里有一些代码实测是错的，我不知道是不是版本问题。</p>
+<p>推荐几个好的帖子吧：<br>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40837767/article/details/105872943%EF%BC%8C%E8%BF%99%E7%AF%87%E5%B8%96%E5%AD%90%E5%AF%B9%E4%BA%8Esql%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%B0%81%E8%A3%85%E7%BB%99%E4%BA%86%E6%88%91%E5%BE%88%E5%A4%A7%E5%90%AF%E5%8F%91%EF%BC%8C%E8%99%BD%E7%84%B6%E5%86%8D%E6%9C%80%E5%90%8E%E7%9A%84values%E8%BF%99%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%A4%84%E7%90%86%E4%B8%8A%E5%92%8C%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E8%A6%81%E6%B1%82%E7%9A%84tuple%E7%B1%BB%E5%9E%8B%E4%B8%8D%E4%B8%80%E8%87%B4%EF%BC%8C%E4%BD%86%E6%95%B4%E4%BD%93%E4%B8%8A%E8%BF%98%E6%98%AF%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%9A%84%E6%80%9D%E8%B7%AF">https://blog.csdn.net/weixin_40837767/article/details/105872943，这篇帖子对于sql语句的封装给了我很大启发，虽然再最后的values这个变量的处理上和官方文档要求的tuple类型不一致，但整体上还是非常好的思路</a><br>2、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42703149/article/details/85120029%EF%BC%8C%E8%BF%99%E7%AF%87%E5%B8%96%E5%AD%90%E5%AF%B9execute()%E5%92%8Cexecutemany()%E7%9A%84%E5%AE%9E%E4%BE%8B%E4%B8%BE%E5%BE%97%E9%9D%9E%E5%B8%B8%E5%A5%BD%E3%80%82">https://blog.csdn.net/weixin_42703149/article/details/85120029，这篇帖子对execute()和executemany()的实例举得非常好。</a></p>
+<p>对了，官方文档还是非常有帮助的，可以说最后实现批量上传，还是因为官方文档对executemany（）给了明确的语法和类型说明。地址在这里：<a target="_blank" rel="noopener" href="https://docs.oracle.com/cd/E17952_01/connector-python-en/connector-python-api-mysqlcursor-executemany.html">https://docs.oracle.com/cd/E17952_01/connector-python-en/connector-python-api-mysqlcursor-executemany.html</a></p>
+<p>今天的收获就这么多。好像很久不写代码效率就很低，两天才能攻克一个小问题，希望随着代码写得多能够越来越快解决问题，实现自己的小愿望。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io">Gloria Yun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io/2022/09/30/20220930-%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E7%9A%84%E4%B8%8D%E5%AF%B9%E7%A7%B0%E3%80%91/">http://gloriayy.github.io/2022/09/30/20220930-%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E7%9A%84%E4%B8%8D%E5%AF%B9%E7%A7%B0%E3%80%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://gloriayy.github.io" target="_blank">GloriaYY's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2022/10/19/20221019-%E3%80%8A%E9%AB%98%E6%80%A7%E8%83%BDMySQL%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="《高性能MySQL》读书笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">《高性能MySQL》读书笔记</div></div><div class="info-2"><div class="info-item-1">关于此书书名：高性能MySQL 第3版作者：【美】Baron Schwartz，Peter Zaitsev，Vadim Tkachenko译者： 宁海元， 周振兴， 彭立勋， 翟卫祥， 刘辉出版社： 电子工业出版社 书共分16个章节，后有6个附录 前言前言部分讲了本书适用的读者、书的内容组织架构、书的约定字体和标识、示例代码的授权方式、联系方式和致谢等。 我一直很喜欢看西方人写书的致谢部分，有一些很坦诚，比如Derek的致谢最后说，“没有他们，这本书可能也能写出来，但我几乎可以肯定我会在这个过程中疯掉。” 第一章 MySQL架构与历史这一张在书的开头，鲜明的强调了，“和其他数据库系统相比，MYSQL有点与众不同，他的架构可以在多种不同场景中应用并发挥好的作用，但同时也会带来一点选择上的困难”。 1.1 MySQL逻辑架构图1-1非常棒，下面的解说也清晰，结合后面的内容，可以看出，MySQL的优势在于可以兼容多个存储引擎，这大概就是可以在不同场景中应用的基础吧。 因此就需要第二层的查询解析、分析、优化、缓存等核心服务，来实现跨存储引擎的目标。 1.2 并发控制读过，觉得这小节主要讲...</div></div></div></a><a class="pagination-related" href="/2022/09/30/20220930-%E7%9C%8B%E4%B8%8D%E6%83%AFPython%E5%8D%B4%E4%B9%9F%E7%A6%BB%E4%B8%8D%E5%BC%80Python%EF%BC%88%E4%B8%80%EF%BC%89/" title="看不惯Python却也离不开Python（一）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">看不惯Python却也离不开Python（一）</div></div><div class="info-2"><div class="info-item-1">Python的函数默认值情况下会出一些问题话说一年多没写一条代码了，最近一个月基本上工作日都能写写代码，还是要感谢单位的培训课程。 基本上都是Python的课程，所以也就没得选，没得挑了，谁让流行趋势时Python呢。但是其实Python的函数用起来方便的同时，小毛病也是很隐藏的。 前几天下载了一些数据，先保存成csv文件了，今天读取出来才发现，多了一列’Unnamed:0‘， 很难理解这样设计函数是几个意思。最要命的是这多出来的一列并不是索引，很难引用。(后来发现居然可以引用，就是注意Unnamed：后面有一个空格才是0） 这里记录一下我的处理方法，遇到同类问题的大家可以借鉴一下哈。我导入的数据命名为f // An highlighted block # 去掉Unnamed:0这列 f = f[f.columns[1:]]# 这行是发现索引Unnamed： 0可以引用后修改的代码 # 重写数据 f.to_csv(&#39;f.csv&#39;,index=False) # 重读数据 f = pd.read_csv(&#39;f.csv&#39;, encoding=&#39;g...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gloria Yun</div><div class="author-info-description">My technical blog migrated from CSDN to Hexo</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="https://gloriayy.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/" title="返朴归真的技术">返朴归真的技术</a><time datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验">云IDE和开源大赛体验</a><time datetime="2026-03-15T02:10:15.000Z" title="发表于 2026-03-15 10:10:15">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/14/20260314-%E3%80%90MySQL%E5%AE%9E%E6%88%982%20%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90%E3%80%91/" title="【MySQL实战2 作业解析】">【MySQL实战2 作业解析】</a><time datetime="2026-03-14T03:01:45.000Z" title="发表于 2026-03-14 11:01:45">2026-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E6%96%B0%E5%AD%A6%E6%9C%9F%E5%BC%80%E5%A7%8B%E4%BA%86/" title="新学期开始了">新学期开始了</a><time datetime="2026-03-13T13:11:48.000Z" title="发表于 2026-03-13 21:11:48">2026-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%94%B6%E8%8E%B7/" title="开源大赛的种种收获">开源大赛的种种收获</a><time datetime="2026-03-13T12:54:38.000Z" title="发表于 2026-03-13 20:54:38">2026-03-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Gloria Yun</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

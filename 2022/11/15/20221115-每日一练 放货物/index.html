@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>每日一练 放货物 | GloriaYY's Blog</title><meta name="author" content="Gloria Yun"><meta name="copyright" content="Gloria Yun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="今天在每日一练里练习算法，也是好久没有练了。 打开一道题目，标明难度为困难，类别为数学。 其实题目初看完全不困难啊，很快解决了的感觉，但就是无法通过所有测试用例。而我就是完全看不出来哪里有问题。 只能通过80%的测试用例，想不出来另外20%的用例长什么样子啊~~ 从上图的示例和题目的代码来看，每一行输入后，都会执行计算，得出一个最优解。所以其实这个问题就简化成了一行两个数，计算商的向上取整值，13">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日一练 放货物">
+<meta property="og:url" content="http://gloriayy.github.io/2022/11/15/20221115-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83%20%E6%94%BE%E8%B4%A7%E7%89%A9/index.html">
+<meta property="og:site_name" content="GloriaYY&#39;s Blog">
+<meta property="og:description" content="今天在每日一练里练习算法，也是好久没有练了。 打开一道题目，标明难度为困难，类别为数学。 其实题目初看完全不困难啊，很快解决了的感觉，但就是无法通过所有测试用例。而我就是完全看不出来哪里有问题。 只能通过80%的测试用例，想不出来另外20%的用例长什么样子啊~~ 从上图的示例和题目的代码来看，每一行输入后，都会执行计算，得出一个最优解。所以其实这个问题就简化成了一行两个数，计算商的向上取整值，13">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://gloriayy.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2022-11-15T11:05:43.000Z">
+<meta property="article:modified_time" content="2022-11-15T11:05:43.000Z">
+<meta property="article:author" content="Gloria Yun">
+<meta property="article:tag" content="hexo, blog, csdn, migration">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gloriayy.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "每日一练 放货物",
+  "url": "http://gloriayy.github.io/2022/11/15/20221115-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83%20%E6%94%BE%E8%B4%A7%E7%89%A9/",
+  "image": "http://gloriayy.github.io/img/butterfly-icon.png",
+  "datePublished": "2022-11-15T11:05:43.000Z",
+  "dateModified": "2022-11-15T11:05:43.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Gloria Yun",
+      "url": "http://gloriayy.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://gloriayy.github.io/2022/11/15/20221115-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83%20%E6%94%BE%E8%B4%A7%E7%89%A9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '每日一练 放货物',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">GloriaYY's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">每日一练 放货物</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">每日一练 放货物</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-15T11:05:43.000Z" title="发表于 2022-11-15 19:05:43">2022-11-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-15T11:05:43.000Z" title="更新于 2022-11-15 19:05:43">2022-11-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>今天在每日一练里练习算法，也是好久没有练了。</p>
+<p>打开一道题目，标明难度为困难，类别为数学。<br><img src="/assets/127871286_8dda91.png" alt="在这里插入图片描述"></p>
+<p>其实题目初看完全不困难啊，很快解决了的感觉，但就是无法通过所有测试用例。而我就是完全看不出来哪里有问题。</p>
+<p>只能通过80%的测试用例，想不出来另外20%的用例长什么样子啊~~<br><img src="/assets/127871286_e442c9.png" alt="在这里插入图片描述"></p>
+<p><img src="/assets/127871286_0e52e1.png" alt="在这里插入图片描述"><br>从上图的示例和题目的代码来看，每一行输入后，都会执行计算，得出一个最优解。所以其实这个问题就简化成了一行两个数，计算商的向上取整值，13是被禁用的除数。 我完全没有看到困难在哪里——直到我的代码只能通过80%的测试用例！</p>
+<p>冥思苦想了很久，发现bug出现在没有很好的处理剩余非整车装的货物与13这个数字之间的关系，于是加了两行代码，终于，成功通过所有测试用例。<br><img src="/assets/127871286_47b39d.png" alt="在这里插入图片描述"></p>
+<p>代码如下。 难点就在于13这个数字的处理上。但是标注为困难，其实还是有些夸张了，总体上应该属于简单或者中等吧，毕竟算法练习少得可怜的我居然也做出来了呢！</p>
+<pre><code>// solution函数的代码是我的，其他的代码是系统给定的
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        while (scan.hasNext()) {
+
+            String str_0 = scan.nextLine();
+            String[] line_list_0 = str_0.trim().split(&quot; &quot;);
+            ArrayList&lt;Integer&gt; arr = new ArrayList&lt;&gt;();
+            for (int i = 0; i &lt; line_list_0.length; i++) {
+                arr.add(Integer.parseInt(line_list_0[i]));
+            }
+            int result = solution(arr);
+            System.out.println(result);
+        }
+        scan.close();
+
+    }
+
+    public static int solution(ArrayList&lt;Integer&gt; data) {
+        int result = 0;
+
+        // TODO: 请在此编写代码
+        int n = data.get(0);
+        int k = 1;
+        
+        // 处理货车载荷不能为13的约束条件
+        if( data.get(1) == 13){
+            k = data.get(1) - 1;
+        }else{
+            k = data.get(1);
+        }
+        
+        // 排布货物，注意剩余的非整车装的货物也不能是13！
+     
+        if( n % k == 0){
+            result = n / k;
+        }else if( n % k == 13){
+            result = n / k + 2;
+        }else{
+            result = n / k + 1;
+        }        
+        
+
+        return result;
+    }
+}
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io">Gloria Yun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io/2022/11/15/20221115-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83%20%E6%94%BE%E8%B4%A7%E7%89%A9/">http://gloriayy.github.io/2022/11/15/20221115-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83%20%E6%94%BE%E8%B4%A7%E7%89%A9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://gloriayy.github.io" target="_blank">GloriaYY's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2022/11/25/20221125-CSDN%20%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%8E%BB%E9%99%A4%E6%95%B4%E6%95%B0/" title="CSDN 每日一题 去除整数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">CSDN 每日一题 去除整数</div></div><div class="info-2"><div class="info-item-1">尝试好久，没有通过。 不知道问题出在哪里，请高人指点一下。 还觉得现学现用了前几天补习的hashMap，沾沾自喜了一会儿，但是结果很让人担心。示例都通不过~~ 提示提高写作质量了，好吧，补充一些题目的要求：集合A中有1到n的自然数，给出m个整数，将集合A中 m个整数的倍数都去除，输出集合A最终剩余的元素个数。 题目和我描述的不太一样，我是把我的理解说出来的。说实话，CSDN的题目描述经常让人很难理解，不知道为什么，虽然是汉语，但是比leetcode上的英文题目还难理解，就是觉得有的地方没有说或明白，不知道这些题目是不是机器人编的 。是的话，还需要再好好调试一下~~ import java.util.ArrayList; import java.util.Scanner; import java.util.Map; import java.util.HashMap; import java.util.Set;  class Main {     public static void main(String[] args) {         Scanner scan = new S...</div></div></div></a><a class="pagination-related" href="/2022/10/24/20221024-MySQL%E6%8A%80%E8%83%BD%E6%A0%91%E5%AE%9E%E6%88%98%E2%80%94%E2%80%941%E8%A7%82%E5%AF%9F%E7%AF%87/" title="MySQL技能树实战——1观察篇"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">MySQL技能树实战——1观察篇</div></div><div class="info-2"><div class="info-item-1">最近对数据库很感兴趣，开始学习MySQL，偶然发现CSDN有技能树，看了一下还真的蛮不错。有讲解，有答题，最重要的还有实战环境，真的是很赞啊！ MySQL的技能树在这里：https://edu.csdn.net/skill/mysql 我看了一下除了MySQL还有好多其他可以学习的内容，目测有十四种的样子。 今天过节，上线居然还觉得有些拥挤，刚才就看到一个502，但是拥挤归拥挤，好不容易我有时间写代码，有脸过节了，绝不能因为这点小问题放弃哈。 今天准备利用实战环节，探索一下官方给提供的实战数据库的情况，观察为主。 观察官方提供MySQL数据库欢迎界面看到这个欢迎界面，有没有很熟悉的感觉，我的第一感觉就是，这是整合了腾讯云的资源吧，色调一模一样啊，不错。第二感觉就是，这是用的MariaDB啊, 纯正的MySQL之父的产品，恩，源于MySQL优于 MySQL，有品位。第三感觉就是菜单要比腾讯云优化，简洁明了。 前面有一年多没怎么用CSDN，不知道发生了什么啊，感觉好像有神仙级别的产品经理入驻了。好兆头！ 欢迎界面给了很多提示信息，包括登陆、帮助和语法要点。很明显的位置写着：Maria...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gloria Yun</div><div class="author-info-description">My technical blog migrated from CSDN to Hexo</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="https://gloriayy.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/" title="返朴归真的技术">返朴归真的技术</a><time datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验">云IDE和开源大赛体验</a><time datetime="2026-03-15T02:10:15.000Z" title="发表于 2026-03-15 10:10:15">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/14/20260314-%E3%80%90MySQL%E5%AE%9E%E6%88%982%20%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90%E3%80%91/" title="【MySQL实战2 作业解析】">【MySQL实战2 作业解析】</a><time datetime="2026-03-14T03:01:45.000Z" title="发表于 2026-03-14 11:01:45">2026-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E6%96%B0%E5%AD%A6%E6%9C%9F%E5%BC%80%E5%A7%8B%E4%BA%86/" title="新学期开始了">新学期开始了</a><time datetime="2026-03-13T13:11:48.000Z" title="发表于 2026-03-13 21:11:48">2026-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%94%B6%E8%8E%B7/" title="开源大赛的种种收获">开源大赛的种种收获</a><time datetime="2026-03-13T12:54:38.000Z" title="发表于 2026-03-13 20:54:38">2026-03-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Gloria Yun</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

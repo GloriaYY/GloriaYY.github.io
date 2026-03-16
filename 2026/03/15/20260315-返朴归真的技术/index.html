@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>返朴归真的技术 | GloriaYY's Blog</title><meta name="author" content="Gloria Yun"><meta name="copyright" content="Gloria Yun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="@[TOC]心得体会 返朴归真的技术一直以来不怎么喜欢写东西，总觉得有些东西写出来也不是很值得，因为很可能过一段时间再看就完全没有意义了。不过最近看了几本很有趣的书，觉得写出来的东西可以给其他人一点感动的话，也是很好的事情。 其实严格意义上我也不是一个计算机专业的人，要说的话，就是计算机相关专业，不过最近几年，对计算机的喜爱就越发强烈了。倒不是因为工作在计算机相关领域，话说其实工作本身就只是用计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="返朴归真的技术">
+<meta property="og:url" content="http://gloriayy.github.io/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="GloriaYY&#39;s Blog">
+<meta property="og:description" content="@[TOC]心得体会 返朴归真的技术一直以来不怎么喜欢写东西，总觉得有些东西写出来也不是很值得，因为很可能过一段时间再看就完全没有意义了。不过最近看了几本很有趣的书，觉得写出来的东西可以给其他人一点感动的话，也是很好的事情。 其实严格意义上我也不是一个计算机专业的人，要说的话，就是计算机相关专业，不过最近几年，对计算机的喜爱就越发强烈了。倒不是因为工作在计算机相关领域，话说其实工作本身就只是用计算">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://gloriayy.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-03-15T09:34:48.000Z">
+<meta property="article:modified_time" content="2026-03-15T09:34:48.000Z">
+<meta property="article:author" content="Gloria Yun">
+<meta property="article:tag" content="hexo, blog, csdn, migration">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gloriayy.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "返朴归真的技术",
+  "url": "http://gloriayy.github.io/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/",
+  "image": "http://gloriayy.github.io/img/butterfly-icon.png",
+  "datePublished": "2026-03-15T09:34:48.000Z",
+  "dateModified": "2026-03-15T09:34:48.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Gloria Yun",
+      "url": "http://gloriayy.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://gloriayy.github.io/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '返朴归真的技术',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">GloriaYY's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">返朴归真的技术</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">返朴归真的技术</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-03-15T09:34:48.000Z" title="更新于 2026-03-15 17:34:48">2026-03-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>@[TOC]心得体会</p>
+<h2 id="返朴归真的技术"><a href="#返朴归真的技术" class="headerlink" title="返朴归真的技术"></a>返朴归真的技术</h2><p>一直以来不怎么喜欢写东西，总觉得有些东西写出来也不是很值得，因为很可能过一段时间再看就完全没有意义了。不过最近看了几本很有趣的书，觉得写出来的东西可以给其他人一点感动的话，也是很好的事情。</p>
+<p>其实严格意义上我也不是一个计算机专业的人，要说的话，就是计算机相关专业，不过最近几年，对计算机的喜爱就越发强烈了。倒不是因为工作在计算机相关领域，话说其实工作本身就只是用计算机的很浅的功能，对计算机的兴趣完全来自于TA的优秀和朴实，还有就是TA给我带来的一系列挫折。</p>
+<p>想当初，在学校里，安装任何一个软件我都很困难，别的同学安装好了，我的计算机总是出问题，报错不停，而且报的错也很奇葩，连老师看了都惊呼，你有一个奇怪的电脑（T_T)。</p>
+<p>知道最近我才发现，其实TA只是告诉我，我根本不了解TA，我每天面对着的是自己根本不了解的机器，然而我还希望TA能解决我的所有问题。这就是我最大的问题，我相信这也是很多人的问题，但是很多人甚至还不觉得这是个问题。</p>
+<h3 id="重新认识计算机"><a href="#重新认识计算机" class="headerlink" title="重新认识计算机"></a>重新认识计算机</h3><p>其实很多时候我遇到的报错信息，我甚至不明白他们的意思是什么，我只是看到了错误信息的文本和编号，但是在计算机里真实发生的是什么样的事情，我全然不知。</p>
+<p>最近对这个问题的好奇达到一个推动我行动的点，于是我找来了一本书，《操作系统之哲学原理》（第2版），我想知道计算机里面到底是怎么运转的。看书的前言，说这是计算机专业的本科教材，（所以你们知道我不是计算机专业的），我就放心了，这个应该可以看懂的。</p>
+<p>看这本书的过程，很有意思。作者会提出一个问题，再寻找解决方案，而每个解决方案看起来是自然而然，对的，就是人类的思维会去想到的自然方案。这本书让我对计算机有了更多好感，其实计算机就是人类思维的显化，其实TA就是我们的一部分。</p>
+<p>书的结尾章节还有一首歌的歌词，Every OS Sucks。其实有一点讽刺，但是也不完全超现实，真是情况是的确每一种操作系统都或多或少的有问题，而我就好像遇到的问题格外多一些。我隐约觉得操作系统在告诉我，我应该多了解TA一些，然而我慢了10000拍的样子，现在才感觉到。不过人还活着，为时不晚，继续学习吧。</p>
+<h3 id="平衡和中庸"><a href="#平衡和中庸" class="headerlink" title="平衡和中庸"></a>平衡和中庸</h3><p>《操作系统之哲学原理》（第2版）中提到了电影“黑客帝国”里设计师的形象，我很好奇，于是找来黑客帝国的3部都刷了一遍。（你们一定惊讶我为什么没看过黑客帝国，其实我也不知道，就是没看过）</p>
+<p>总体看起来，第一部黑客帝国是拍得最好的，第二部第三部相对差一些，因为后面两部的Violent和Sexual的镜头太多，感觉主题被冲淡了。设计师的角色在第二部，第三部里面出现过，书中引用的对话在第二部结尾附近。</p>
+<p>其实黑客帝国中，Matrix就好比是一个操作系统，Neo就好比是一个补丁，最后Smith就是一个无敌病毒，Oracle就好像是用户界面，Zion就代表着人类的意志。操作系统代表着机器的那一面，Zion代表着人类的那一面，而黑客帝国中的血腥斗争就是在计算机中发生的人类意志和机器规则的交互，最后Neo为大家带来了和平，而Oracle则是指引人类发现问题所在的那个用户界面。之所以Smith会成为超级病毒，是因为Smith也想做一个补丁，修改操作系统，最后就是病毒被补丁消化了。好像这么看起来，故事情节清晰一些哈。</p>
+<p>剧中有几段对话还是写的比较精彩的：设计师和Neo在第二部的对话，以及Oracle和Neo在第三部里的对话，和第三部结尾设计师和Oracle的对话。设计师对Neo说的话就是告诉Neo，其实系统本身是平衡的，是因为人类无止尽的欲望变得很难平衡，而Neo是无法消除的那个不平衡变量。Oracle和Neo说的话，大致就是设计师其实无法预言未来发生的事，只是一味追求等式的平衡并不能带来美好的未来，而Neo的任务就是让等式不平衡。第三部结尾设计师和Oracle的对话意味深长，感觉上像死对头的两个人看起来像是朋友一样，Oracle经历了危险的变化，终于变成了升级后的恬静的样子，Oracle认为任何改变都是危险的，危险本身并没有很可怕，而设计师也决定给系统留一些机器规则以外的自由。</p>
+<p>其实黑客帝国里面有一个背景就是Mopheus给Neo讲时间是2069年，因为21世纪初人类盲目崇拜人工智能导致机器控制人类，所以最后人变成机器制造等等。这个背景现在看来是很荒诞，但是也具有很惊醒的作用。我们在计算机的设计中到底要怎么平衡数字规则和人类规则呢？Oracle是剧中最有力量的角色，她其实一直在平衡这两个方面的力量，所以她是先知，大道的代表，中庸之道也是平衡之道。其实抛开剧中的乱七八槽的镜头，黑客帝国还是有深度的一部电影。</p>
+<h2 id="未来10年"><a href="#未来10年" class="headerlink" title="未来10年"></a>未来10年</h2><p>其实这几年真的是没什么进展，毕竟慢了10000拍。不过从旁观者的角度看，其实这10年的变化也不是很大，操作系统还是那个样子，没有很多惊喜。而所谓的大数据，其实感觉上所得和所失也大相径庭，得到的知识是有限的，付出的成本也是惊人的，深度计算消耗的电能据说已经达到全球总电耗的6%还是10% 来着，之前看到的报告，也可能数据不靠谱。</p>
+<p>而深度学习的危险也是很有Smith的感觉，深度学习逐渐给深度假冒提供了方便。</p>
+<p>所幸的是，在2020北京智源大会上听到几位重磅嘉宾也在讲，未来10年要从data centric的机器学习发展到science centric的阶段，更多研究会出于free will,而不是为了追求profit。恩，听起来像是我的菜了，看起来我也要学习来啦，计算机，最熟悉的陌生朋友，一起奋斗吧。</p>
+<p>PS：第一次用CSDN写博客，感觉这个工具很方便，手动赞一下。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io">Gloria Yun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/">http://gloriayy.github.io/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://gloriayy.github.io" target="_blank">GloriaYY's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">云IDE和开源大赛体验</div></div><div class="info-2"><div class="info-item-1">官方的活动，既然如此把链接留在这里吧~~不用谢！云IDE产品介绍云IDE使用教程免费使用地址：点击【云IDE】，即可开始创建工作空间啦~ 开源大赛其实我前几天看到了云IDE，可是没有开通，因为讲真，我对自己的开发技能还是认识很清醒的，让我从头写代码，我还真的是不知道自己现在能开发啥~~所以就想着别给自己找麻烦了。 然而今天逛CSDN发现了一个好东东，开源任务挑战赛（https://gitcode.net/gitcode/1024opensource/-/blob/master/%E5%BC%80%E6%BA%90%E4%BB%BB%E5%8A%A12.md），于是就开始参加了。 不得不说，比赛设置的不错，说明非常友好，基本上就是扶着小白上墙的节奏，已经这么友好了，我就真的不好意思不参加了呢~~ 当然，开源还真的是很吸引人的领域，想当初毕业设计想用IBM的闭源产品来着，导师硬是没有同意，指了一条明路，你去用开源solver吧。于是，从头学习了Python，短短三个月，各种拼凑也算是顺利毕业。那时候就有一个印象，开源的软件很强大，而且开源社区很友好！反正邮件组里有问题，经常得到回应，...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gloria Yun</div><div class="author-info-description">My technical blog migrated from CSDN to Hexo</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="https://gloriayy.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text">返朴归真的技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="toc-number">1.1.</span> <span class="toc-text">重新认识计算机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E5%92%8C%E4%B8%AD%E5%BA%B8"><span class="toc-number">1.2.</span> <span class="toc-text">平衡和中庸</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A510%E5%B9%B4"><span class="toc-number">2.</span> <span class="toc-text">未来10年</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/" title="返朴归真的技术">返朴归真的技术</a><time datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验">云IDE和开源大赛体验</a><time datetime="2026-03-15T02:10:15.000Z" title="发表于 2026-03-15 10:10:15">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/14/20260314-%E3%80%90MySQL%E5%AE%9E%E6%88%982%20%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90%E3%80%91/" title="【MySQL实战2 作业解析】">【MySQL实战2 作业解析】</a><time datetime="2026-03-14T03:01:45.000Z" title="发表于 2026-03-14 11:01:45">2026-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E6%96%B0%E5%AD%A6%E6%9C%9F%E5%BC%80%E5%A7%8B%E4%BA%86/" title="新学期开始了">新学期开始了</a><time datetime="2026-03-13T13:11:48.000Z" title="发表于 2026-03-13 21:11:48">2026-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%94%B6%E8%8E%B7/" title="开源大赛的种种收获">开源大赛的种种收获</a><time datetime="2026-03-13T12:54:38.000Z" title="发表于 2026-03-13 20:54:38">2026-03-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Gloria Yun</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

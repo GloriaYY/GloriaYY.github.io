@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2021-06-12 LeetBook作业记录： 图像渲染 | GloriaYY's Blog</title><meta name="author" content="Gloria Yun"><meta name="copyright" content="Gloria Yun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="文章目录 题目概述 一、解题思路 二、作业记录 * 1.作业代码   2.作业表现   复杂度分析   题目概述题目要求把与给定pixel四个方向连接的颜色相同的pixel涂成新的颜色。颜色用正整数表示。  题目地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;leetbook&#x2F;read&#x2F;queue-stack&#x2F;g02cj&#x2F; 一、解题思路这道题和岛屿数量这道题基本上是类似的，思路就是用dfs。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021-06-12 LeetBook作业记录： 图像渲染">
+<meta property="og:url" content="http://gloriayy.github.io/2021/06/12/20210612-2021-06-12%20LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%20%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/index.html">
+<meta property="og:site_name" content="GloriaYY&#39;s Blog">
+<meta property="og:description" content="文章目录 题目概述 一、解题思路 二、作业记录 * 1.作业代码   2.作业表现   复杂度分析   题目概述题目要求把与给定pixel四个方向连接的颜色相同的pixel涂成新的颜色。颜色用正整数表示。  题目地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;leetbook&#x2F;read&#x2F;queue-stack&#x2F;g02cj&#x2F; 一、解题思路这道题和岛屿数量这道题基本上是类似的，思路就是用dfs。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://gloriayy.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2021-06-12T09:06:01.000Z">
+<meta property="article:modified_time" content="2021-06-12T09:06:01.000Z">
+<meta property="article:author" content="Gloria Yun">
+<meta property="article:tag" content="hexo, blog, csdn, migration">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gloriayy.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2021-06-12 LeetBook作业记录： 图像渲染",
+  "url": "http://gloriayy.github.io/2021/06/12/20210612-2021-06-12%20LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%20%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/",
+  "image": "http://gloriayy.github.io/img/butterfly-icon.png",
+  "datePublished": "2021-06-12T09:06:01.000Z",
+  "dateModified": "2021-06-12T09:06:01.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Gloria Yun",
+      "url": "http://gloriayy.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://gloriayy.github.io/2021/06/12/20210612-2021-06-12%20LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%20%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2021-06-12 LeetBook作业记录： 图像渲染',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">GloriaYY's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">2021-06-12 LeetBook作业记录： 图像渲染</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">2021-06-12 LeetBook作业记录： 图像渲染</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-12T09:06:01.000Z" title="发表于 2021-06-12 17:06:01">2021-06-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-06-12T09:06:01.000Z" title="更新于 2021-06-12 17:06:01">2021-06-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h4 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h4><ul>
+<li>题目概述</li>
+<li>一、解题思路</li>
+<li>二、作业记录</li>
+<li><pre><code>* 1.作业代码
+</code></pre>
+<ul>
+<li>2.作业表现</li>
+</ul>
+</li>
+<li>复杂度分析</li>
+</ul>
+<hr>
+<h2 id="题目概述"><a href="#题目概述" class="headerlink" title="题目概述"></a>题目概述</h2><p>题目要求把与给定pixel四个方向连接的颜色相同的pixel涂成新的颜色。颜色用正整数表示。</p>
+<hr>
+<p>题目地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/leetbook/read/queue-stack/g02cj/">https://leetcode-cn.com/leetbook/read/queue-stack/g02cj/</a></p>
+<h2 id="一、解题思路"><a href="#一、解题思路" class="headerlink" title="一、解题思路"></a>一、解题思路</h2><p>这道题和岛屿数量这道题基本上是类似的，思路就是用dfs。如果相邻四个方向的pixel都和起点pixel的颜色一致，就涂上新颜色，否则什么都不做。涂色之后，重复检查新涂色pixel相邻四个方向的Pixel，重复刚才的操作。</p>
+<p>踩了几个坑，所以这里补一下思路的注意事项：<br>1）newColor不一定是一种不一样的颜色，有可能和image[sr][sc]一个颜色。把这个测试用例po在这里，有没有觉得很坑：<br>[[0,0,0],[0,1,1]]<br>1<br>1<br>1<br>2）行列的下标一定要对应，我有一次把行列的下标标反了，浪费了一次提交。</p>
+<h2 id="二、作业记录"><a href="#二、作业记录" class="headerlink" title="二、作业记录"></a>二、作业记录</h2><h3 id="1-作业代码"><a href="#1-作业代码" class="headerlink" title="1.作业代码"></a>1.作业代码</h3><p>代码如下：</p>
+<pre><code>class Solution {
+
+    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+
+        int oldColor;
+        oldColor = image[sr][sc];
+        
+        if( oldColor == newColor)
+            return image;
+           
+        refill(image, sr, sc, oldColor, newColor);
+        return image;
+
+    }
+
+    public void refill( int[][]image, int sr, int sc, int oldColor, int newColor){
+
+        if( sr &lt; 0 || sc &lt; 0 || sc &gt;= image[0].length || sr &gt;= image.length || image[sr][sc] != oldColor)
+           return;
+        
+        image[sr][sc] = newColor;  
+        
+        refill(image, sr-1, sc, oldColor, newColor);
+        refill(image, sr+1, sc, oldColor, newColor);
+        refill(image, sr, sc-1, oldColor, newColor);
+        refill(image, sr, sc+1, oldColor, newColor);      
+    }
+}
+</code></pre>
+<h3 id="2-作业表现"><a href="#2-作业表现" class="headerlink" title="2.作业表现"></a>2.作业表现</h3><p>表现如下：</p>
+<p><img src="/assets/117848647_80d9c0.png" alt="在这里插入图片描述"></p>
+<p>这是第三个版本。头两个版本耗时1ms，大概是因为我把四个方向做成了一个二维数组，然后用for循环去走方向的缘故，我的猜想是初始化二维数据很耗时。这道题虽然和岛屿数量那道题很像，不过这道题不需要遍历image的全部节点，只需要以image[sr][sc]为中心开展dfs就好，所以主函数里都省去循环遍历的语句了。</p>
+<hr>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><p>时间复杂度：refill函数的操作基本上就是赋值，应该是O(1)复杂度，我们用到了递归从开始节点向四个方向搜索，基本上可以近似于四叉树，我想是不是应该是log以4为底N的对数，N是image的所有元素的个数。这么说起来这个solution的时间复杂度可以说是O(logN)。</p>
+<p>空间复杂度：基本上没有利用额外空间存储元素，就是O(1)了吧。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io">Gloria Yun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://gloriayy.github.io/2021/06/12/20210612-2021-06-12%20LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%20%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/">http://gloriayy.github.io/2021/06/12/20210612-2021-06-12%20LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%20%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://gloriayy.github.io" target="_blank">GloriaYY's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2022/07/11/20220711-30%E5%A4%A9%E8%87%AA%E5%88%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20Day3/" title="30天自制操作系统 Day3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">30天自制操作系统 Day3</div></div><div class="info-2"><div class="info-item-1">BIOS的寄存器和磁盘http://community.osdev.info/?(AT)BIOS 作者给的这个页面可能需要科学上网，访问不了。我的选择是暂时放弃T_T。反正作者写了我们在还页面上会看到的内容了。 今天的学习内容和JC这个命令有关。 JC : Jump if carry, 如果进位标志位1，就跳转。 我对照了之前关注的大佬的笔记，https://blog.csdn.net/qq511714326/article/details/82924920， 好像这一天，大佬记得不是很详细了，不过大佬贴出了源码，好开心，我的编辑器打开后看日文是乱码啊。所以抄笔记也是有收获的：P。 其实关于BIOS的寄存器这里我有些不太懂了。作者说要记住的几个寄存器是CH ：柱面号CL ：扇区号DH ：磁头号DL ：驱动器号 其实初看这些好懵啊，我觉得只要记住柱面是同心圆（环），从盘面外圈开始往里数。磁头有两个，正面是0，反面是1. 扇区就简单了，顾名思义，把每个柱面均分成18份。含有启动区的那个扇区是1，看图好像是顺时针方向排序的。每一个扇区有512个字节（看起来不是按照面积越大，存储越大的规...</div></div></div></a><a class="pagination-related" href="/2021/06/10/20210610-LeetBook%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88/" title="LeetBook作业记录：用队列实现栈"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">LeetBook作业记录：用队列实现栈</div></div><div class="info-2"><div class="info-item-1">文章目录 题目概述 一、作业思路 二、作业记录 * 1.作业代码   2.作业表现   复杂度分析   题目概述用两个队列实现栈的基本操作push, top, pop,empty。均摊时间复杂度最好是O(1)  题目地址：https://leetcode-cn.com/leetbook/read/queue-stack/gw7fg/ 一、作业思路一开始，我还想着“用栈实现队列”和“用队列实现栈”应该差不过，思路可以借鉴，于是就顺着pop那个环节倒腾元素去了，结果绕了好久，终于发现还是在push环节把问题解决掉比较好。 因为要保证Last in first out， 而队列只能从头部out，我们在插入数据的时候必须保证last in的数据元素排在队首，也就是我们每次插入都必须保证在队列中逆序存储数据元素。也是因为顺序的重要性，我们每次操作之后都必须保证数据都存在一个队列里，否则顺序会乱。 其实我觉得用队列实现栈要比用栈实现队列难一些：1）我们总是要保持一个队列为空，其实想到这一点我花了好久，一开始一直在想最后进的元素要存在哪一个队里（捂脸），陷入了栈的僵局。2）数据需要倒两次，倒入...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gloria Yun</div><div class="author-info-description">My technical blog migrated from CSDN to Hexo</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="https://gloriayy.github.io"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">文章目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">题目概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="toc-number">3.</span> <span class="toc-text">一、解题思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BD%9C%E4%B8%9A%E8%AE%B0%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">二、作业记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%9C%E4%B8%9A%E4%BB%A3%E7%A0%81"><span class="toc-number">4.1.</span> <span class="toc-text">1.作业代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%9C%E4%B8%9A%E8%A1%A8%E7%8E%B0"><span class="toc-number">4.2.</span> <span class="toc-text">2.作业表现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">复杂度分析</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E8%BF%94%E6%9C%B4%E5%BD%92%E7%9C%9F%E7%9A%84%E6%8A%80%E6%9C%AF/" title="返朴归真的技术">返朴归真的技术</a><time datetime="2026-03-15T09:34:48.000Z" title="发表于 2026-03-15 17:34:48">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/15/20260315-%E4%BA%91IDE%E5%92%8C%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E4%BD%93%E9%AA%8C/" title="云IDE和开源大赛体验">云IDE和开源大赛体验</a><time datetime="2026-03-15T02:10:15.000Z" title="发表于 2026-03-15 10:10:15">2026-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/14/20260314-%E3%80%90MySQL%E5%AE%9E%E6%88%982%20%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90%E3%80%91/" title="【MySQL实战2 作业解析】">【MySQL实战2 作业解析】</a><time datetime="2026-03-14T03:01:45.000Z" title="发表于 2026-03-14 11:01:45">2026-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E6%96%B0%E5%AD%A6%E6%9C%9F%E5%BC%80%E5%A7%8B%E4%BA%86/" title="新学期开始了">新学期开始了</a><time datetime="2026-03-13T13:11:48.000Z" title="发表于 2026-03-13 21:11:48">2026-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/13/20260313-%E5%BC%80%E6%BA%90%E5%A4%A7%E8%B5%9B%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%94%B6%E8%8E%B7/" title="开源大赛的种种收获">开源大赛的种种收获</a><time datetime="2026-03-13T12:54:38.000Z" title="发表于 2026-03-13 20:54:38">2026-03-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Gloria Yun</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
